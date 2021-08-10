@@ -20,6 +20,7 @@ namespace BookApplication.Models
 
         public DateTime PublicationDate { get; set; }
 
+        [Required]
         public virtual Cover Cover { get; set; }
     }
 }
