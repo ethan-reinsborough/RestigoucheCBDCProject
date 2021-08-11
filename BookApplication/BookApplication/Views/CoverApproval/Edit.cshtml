@@ -1,0 +1,93 @@
+﻿@model  BookApplication.Models.File
+@using BookApplication.Models
+@{
+    ViewBag.Title = "Validate Book Covers";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm("Edit", "CoverApproval", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div>
+            <h4>File</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.FileID)
+            <dl class="dl-horizontal">
+
+                <dt>Avatar</dt>
+                <dd>
+                    <img src="~/File?id=@Model.FileID"
+                         alt="license" style="width:30%;" />
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Book.Title)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Book.Title)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FileName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FileName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ContentType)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ContentType)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FileType)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FileType)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ApprovedBy)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ApprovedBy)
+                </dd>
+            </dl>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Approved, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Approved)
+                    @Html.ValidationMessageFor(model => model.Approved, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
