@@ -23,6 +23,11 @@ namespace BookApplication.Models
 
         public int ID { get; set; }
 
+        public bool Approved { get; set; }
+
+        [Display(Name = "Validated By")]
+        public string ApprovedBy { get; set; }
+
         public virtual Book Book { get; set; }
     }
 }
