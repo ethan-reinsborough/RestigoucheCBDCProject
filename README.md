@@ -1,7 +1,7 @@
 # RestigoucheCBDCProject
 My submission for the Restigouche CBDC job opportunity.
 
-#TODO:
+# TODO:
 
 - Admin can manage the main book list (create,update,delete) ✓
 - Books have a title, author, and publication date ✓
