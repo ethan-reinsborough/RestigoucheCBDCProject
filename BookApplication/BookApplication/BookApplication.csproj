@@ -288,6 +288,7 @@
     <Content Include="Views\CoverApproval\Index.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Books\Add.cshtml" />
+    <Content Include="Views\Cart\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
