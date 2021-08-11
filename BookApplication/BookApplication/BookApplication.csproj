@@ -179,6 +179,10 @@
     <Compile Include="Migrations\202108102006111_initialDB.Designer.cs">
       <DependentUpon>202108102006111_initialDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108111834421_basicBuild.cs" />
+    <Compile Include="Migrations\202108111834421_basicBuild.Designer.cs">
+      <DependentUpon>202108111834421_basicBuild.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
@@ -222,8 +226,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -272,6 +274,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202108102006111_initialDB.resx">
       <DependentUpon>202108102006111_initialDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108111834421_basicBuild.resx">
+      <DependentUpon>202108111834421_basicBuild.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
