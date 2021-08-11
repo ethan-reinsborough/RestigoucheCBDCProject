@@ -26,6 +26,7 @@
         <th>
             @Html.DisplayNameFor(model => model.PublicationDate)
         </th>
+        <th></th>
     </tr>
 
     @foreach (var item in Model)
@@ -38,8 +39,8 @@
                 @Html.DisplayFor(modelItem => item.PublicationDate)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) <br />
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) <br />
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.ID })
             </td>
         </tr>
