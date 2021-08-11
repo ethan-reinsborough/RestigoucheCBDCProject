@@ -9,9 +9,10 @@ namespace BookApplication.Models
 {
     public class Book
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        //Redundant, will not be needed 
+        //[Key]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int ID { get; set; }
 
         public string Title { get; set; }
 
@@ -20,7 +21,6 @@ namespace BookApplication.Models
 
         public DateTime PublicationDate { get; set; }
 
-        [Required]
-        public virtual Cover Cover { get; set; }
+        public virtual ICollection<File> Files { get; set; }
     }
 }

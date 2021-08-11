@@ -41,13 +41,14 @@ namespace BookApplication.Controllers
         }
 
         // GET: Books/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Book book = db.Books.Find(id);
+            //Book book = db.Books.Find(id);
+            Book book = db.Books.Include(c => c.Files).SingleOrDefault(c => c.ID == id);
             if (book == null)
             {
                 return HttpNotFound();
