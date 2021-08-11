@@ -1,0 +1,56 @@
+﻿
+@model IEnumerable<BookApplication.Models.Cart>
+
+@{
+    ViewBag.Title = "Cart";
+}
+<style>
+    .blue {
+        color: steelblue !important;
+    }
+</style>
+
+<h2 class="blue">Your Cart</h2>
+<br />
+
+<div class="col-md-5">
+    <img src="../../Images/books.png"
+         alt="license" style="width:30%;" />
+
+    <h3> @Html.ActionLink("Create New", "Create")</h3>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.TitleSortParm })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Author)
+        </th>
+        <th>
+            @Html.ActionLink("Publication Date", "Index", new { sortOrder = ViewBag.DateSortParm })
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublicationDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+</table>
