@@ -19,7 +19,7 @@
                 <dd>
                     <!--Add unapproved image here later-->
                     <img src="../../content/notapproved.png"
-                         alt="license" style="width:30%;" />
+                         alt="not approved" style="width:30%;" />
                 </dd>
             }
             else
@@ -27,7 +27,7 @@
                 <dt>Book Cover</dt>
                 <dd>
                     <img src="~/File?id=@Model.Files.Last(f => f.FileType == FileType.BookCover).FileID"
-                         alt="license" style="width:30%;" />
+                         alt="book cover" style="width:30%;" />
                 </dd>
             }
         }
