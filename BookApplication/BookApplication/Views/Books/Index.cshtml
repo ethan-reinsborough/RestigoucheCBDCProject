@@ -4,21 +4,20 @@
     ViewBag.Title = "Index";
 }
 <style>
-    .darkred {
-        color: darkred !important;
+    .blue {
+        color: steelblue !important;
     }
 </style>
 
-<h2 class="darkred">View Books</h2>
+<h2 class="blue">All Books</h2><br />
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<!--Add Book App Logo later-->
 <div class="col-md-5">
-    <img src="../../content/logo.png"
+    <img src="../../Images/books.png"
          alt="license" style="width:30%;" />
+
+    <h3> @Html.ActionLink("Create New", "Create")</h3>
 </div>
+
 <table class="table">
     <tr>
         <th>

@@ -109,3 +109,4 @@ C:\Users\pokem\Documents\GitHub\RestigoucheCBDCProject\BookApplication\BookAppli
 C:\Users\pokem\Documents\GitHub\RestigoucheCBDCProject\BookApplication\BookApplication\obj\Debug\BookApplication.Migrations.initialDB.resources
 C:\Users\pokem\Documents\GitHub\RestigoucheCBDCProject\BookApplication\BookApplication\obj\Debug\BookApplication.csproj.GenerateResource.cache
 C:\Users\pokem\Documents\GitHub\RestigoucheCBDCProject\BookApplication\BookApplication\obj\Debug\BookApplication.Migrations.basicBuild.resources
+C:\Users\pokem\Documents\GitHub\RestigoucheCBDCProject\BookApplication\BookApplication\obj\Debug\BookApplication.Migrations.updatedDataAnnotations.resources

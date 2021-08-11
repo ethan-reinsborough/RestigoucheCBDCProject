@@ -11,8 +11,15 @@ namespace BookApplication.Models
     {
         public int ID { get; set; }
 
+        [Required]
+        [Display(Name = "Title")]
+        [StringLength(25, ErrorMessage = "Title must be at least 2 characters.", MinimumLength = 2)]
         public string Title { get; set; }
 
+        [Required]
+        [DataType(DataType.Date, ErrorMessage = "Invalid Publication Date")]
+        [Display(Name = "Publication Date")]
+        //Books may have a scheduled publication date, so future dates are allowed.
         public DateTime PublicationDate { get; set; }
 
         public virtual ICollection<File> Files { get; set; }
