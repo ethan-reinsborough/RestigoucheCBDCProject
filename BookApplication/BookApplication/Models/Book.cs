@@ -9,15 +9,9 @@ namespace BookApplication.Models
 {
     public class Book
     {
-        //Redundant, will not be needed 
-        //[Key]
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
 
         public string Title { get; set; }
-
-        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = false)]
-        [Display(Name = "Publication Date")]
 
         public DateTime PublicationDate { get; set; }
 
