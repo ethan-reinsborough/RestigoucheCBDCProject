@@ -32,8 +32,6 @@ namespace BookApplication.Models
 
         public DbSet<Book> Books { get; set; }
 
-        public DbSet<Cover> Covers { get; set; }
-
         public DbSet<File> Files { get; set; }
     }
 }

@@ -23,6 +23,6 @@ namespace BookApplication.Models
 
         public int ID { get; set; }
 
-        public virtual Cover Cover { get; set; }
+        public virtual Book Book { get; set; }
     }
 }
