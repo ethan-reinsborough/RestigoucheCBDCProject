@@ -190,19 +190,27 @@ namespace BookApplication.Controllers
         }
 
         // POST: Books/Add
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Add([Bind(Include = "Id,Title")] Book book)
         {
-            //Can check if the book is already in the cart this way, but will simply omit the link in the view.
-            //Cart checkItem = db.Carts.Where(c => c.bookID == book.ID).FirstOrDefault();
-            Cart cart = new Cart();
-            cart.bookTitle = book.Title;
-            cart.bookID = book.ID;
-            cart.userID = User.Identity.GetUserId();
-            db.Carts.Add(cart);
-            Debug.Write(cart);
+            //Simple logic which will either instantiate a cart entry for the book, or if it already exists,
+            //it will increase the quantity by 1.
+            Cart checkItem = db.Carts.Where(c => c.bookID == book.ID).FirstOrDefault();
+            if(checkItem != null)
+            {
+                db.Entry(checkItem).State = EntityState.Modified;
+                checkItem.quantity++;        
+            }
+            else
+            {
+                Cart cart = new Cart();
+                cart.bookTitle = book.Title;
+                cart.bookID = book.ID;
+                cart.quantity = 1;
+                cart.userID = User.Identity.GetUserId();
+                db.Carts.Add(cart);
+            }
             db.SaveChanges();
             return RedirectToAction("Index");
         }

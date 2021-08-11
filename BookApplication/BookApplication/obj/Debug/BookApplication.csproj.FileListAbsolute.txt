@@ -115,3 +115,4 @@ C:\Users\pokem\Documents\GitHub\RestigoucheCBDCProject\BookApplication\BookAppli
 C:\Users\pokem\Documents\GitHub\RestigoucheCBDCProject\BookApplication\BookApplication\obj\Debug\BookApplication.Migrations.cart.resources
 C:\Users\pokem\Documents\GitHub\RestigoucheCBDCProject\BookApplication\BookApplication\obj\Debug\BookApplication.Migrations.cartUpdate.resources
 C:\Users\pokem\Documents\GitHub\RestigoucheCBDCProject\BookApplication\BookApplication\obj\Debug\BookApplication.Migrations.cartFixes.resources
+C:\Users\pokem\Documents\GitHub\RestigoucheCBDCProject\BookApplication\BookApplication\obj\Debug\BookApplication.Migrations.moreCartFixes.resources

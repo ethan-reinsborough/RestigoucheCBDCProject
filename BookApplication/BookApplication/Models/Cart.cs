@@ -15,6 +15,8 @@ namespace BookApplication.Models
 
         public string bookTitle { get; set; }
 
+        public int quantity { get; set; }
+
         //The ID of the book that the user has added to their cart
         public int bookID { get; set; }
 
