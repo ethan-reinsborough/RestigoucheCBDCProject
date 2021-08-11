@@ -13,8 +13,10 @@ namespace BookApplication.Models
         //Will be the logged in user's ID from AspNetUsers table
         public string userID { get; set; }
 
+        public string bookTitle { get; set; }
+
         //The ID of the book that the user has added to their cart
-        public virtual Book book { get; set; }
+        public int bookID { get; set; }
 
     }
 }

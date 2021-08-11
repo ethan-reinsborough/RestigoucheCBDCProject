@@ -1,11 +1,14 @@
 ﻿using BookApplication.Models;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace BookApplication.Controllers
 {
@@ -167,6 +170,39 @@ namespace BookApplication.Controllers
         {
             Book book = db.Books.Find(id);
             db.Books.Remove(book);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        // GET: Books/Add
+        public ActionResult Add(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Book book = db.Books.Find(id);
+            if (book == null)
+            {
+                return HttpNotFound();
+            }
+            return View(book);
+        }
+
+        // POST: Books/Add
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Add([Bind(Include = "Id,Title")] Book book)
+        {
+            //Can check if the book is already in the cart this way, but will simply omit the link in the view.
+            //Cart checkItem = db.Carts.Where(c => c.bookID == book.ID).FirstOrDefault();
+            Cart cart = new Cart();
+            cart.bookTitle = book.Title;
+            cart.bookID = book.ID;
+            cart.userID = User.Identity.GetUserId();
+            db.Carts.Add(cart);
+            Debug.Write(cart);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

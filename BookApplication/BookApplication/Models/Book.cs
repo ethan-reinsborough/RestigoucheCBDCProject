@@ -28,8 +28,6 @@ namespace BookApplication.Models
         //Books may have a scheduled publication date, so future dates are allowed.
         public DateTime PublicationDate { get; set; }
 
-        [Required]
-        [DataType(DataType.Upload, ErrorMessage = "Cover is required.")]
         public virtual ICollection<File> Cover { get; set; }
     }
 }
