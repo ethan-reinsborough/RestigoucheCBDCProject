@@ -44,14 +44,13 @@ namespace BookApplication.Controllers
             return View(Books.ToList());
         }
 
-        // GET: Books/Details/5
+        // GET: Books/Details
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            //Book book = db.Books.Find(id);
             Book book = db.Books.Include(c => c.Cover).SingleOrDefault(c => c.ID == id);
             if (book == null)
             {
@@ -67,10 +66,8 @@ namespace BookApplication.Controllers
             return View();
         }
 
-        [Authorize(Roles = RoleName.Admin)]
         // POST: Books/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = RoleName.Admin)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Title,Author,PublicationDate")] Book book, HttpPostedFileBase upload)
@@ -99,8 +96,8 @@ namespace BookApplication.Controllers
             return View(book);
         }
 
+        // GET: Books/Edit
         [Authorize(Roles = RoleName.Admin)]
-        // GET: Books/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -115,10 +112,8 @@ namespace BookApplication.Controllers
             return View(book);
         }
 
+        // POST: Books/Edit
         [Authorize(Roles = RoleName.Admin)]
-        // POST: Books/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Title,Author,PublicationDate")] Book book, HttpPostedFileBase upload)
@@ -146,8 +141,8 @@ namespace BookApplication.Controllers
             return View(book);
         }
 
+        // GET: Books/Delete
         [Authorize(Roles = RoleName.Admin)]
-        // GET: Books/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -162,8 +157,8 @@ namespace BookApplication.Controllers
             return View(book);
         }
 
+        // POST: Books/Delete
         [Authorize(Roles = RoleName.Admin)]
-        // POST: Books/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int? id)
@@ -197,10 +192,10 @@ namespace BookApplication.Controllers
             //Simple logic which will either instantiate a cart entry for the book, or if it already exists,
             //it will increase the quantity by 1.
             Cart checkItem = db.Carts.Where(c => c.bookID == book.ID).FirstOrDefault();
-            if(checkItem != null)
+            if (checkItem != null)
             {
                 db.Entry(checkItem).State = EntityState.Modified;
-                checkItem.quantity++;        
+                checkItem.quantity++;
             }
             else
             {
