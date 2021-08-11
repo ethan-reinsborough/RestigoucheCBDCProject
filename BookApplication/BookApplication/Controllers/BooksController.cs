@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace BookApplication.Controllers
 {
+    [Authorize]
     public class BooksController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -56,12 +57,14 @@ namespace BookApplication.Controllers
             return View(book);
         }
 
+        [Authorize(Roles = RoleName.Admin)]
         // GET: Books/Create
         public ActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Roles = RoleName.Admin)]
         // POST: Books/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -93,6 +96,7 @@ namespace BookApplication.Controllers
             return View(book);
         }
 
+        [Authorize(Roles = RoleName.Admin)]
         // GET: Books/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -108,6 +112,7 @@ namespace BookApplication.Controllers
             return View(book);
         }
 
+        [Authorize(Roles = RoleName.Admin)]
         // POST: Books/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -138,6 +143,7 @@ namespace BookApplication.Controllers
             return View(book);
         }
 
+        [Authorize(Roles = RoleName.Admin)]
         // GET: Books/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -153,6 +159,7 @@ namespace BookApplication.Controllers
             return View(book);
         }
 
+        [Authorize(Roles = RoleName.Admin)]
         // POST: Books/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

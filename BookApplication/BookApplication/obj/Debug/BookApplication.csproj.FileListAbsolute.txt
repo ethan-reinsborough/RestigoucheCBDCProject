@@ -111,3 +111,4 @@ C:\Users\pokem\Documents\GitHub\RestigoucheCBDCProject\BookApplication\BookAppli
 C:\Users\pokem\Documents\GitHub\RestigoucheCBDCProject\BookApplication\BookApplication\obj\Debug\BookApplication.Migrations.basicBuild.resources
 C:\Users\pokem\Documents\GitHub\RestigoucheCBDCProject\BookApplication\BookApplication\obj\Debug\BookApplication.Migrations.updatedDataAnnotations.resources
 C:\Users\pokem\Documents\GitHub\RestigoucheCBDCProject\BookApplication\BookApplication\obj\Debug\BookApplication.Migrations.addAuthor.resources
+C:\Users\pokem\Documents\GitHub\RestigoucheCBDCProject\BookApplication\BookApplication\obj\Debug\BookApplication.Migrations.roles.resources

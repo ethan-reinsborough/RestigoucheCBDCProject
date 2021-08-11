@@ -9,9 +9,11 @@ using System.Web.Mvc;
 
 namespace BookApplication.Controllers
 {
+    [Authorize(Roles = RoleName.Admin)]
     public class CoverApprovalController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+
         //GET Post
         public ActionResult Index()
         {
