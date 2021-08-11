@@ -1,0 +1,48 @@
+﻿@model IEnumerable<BookApplication.Models.Book>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    .darkred {
+        color: darkred !important;
+    }
+</style>
+
+<h2 class="darkred">View Books</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<!--Add Book App Logo later-->
+<div class="col-md-5">
+    <img src="../../content/logo.png"
+         alt="license" style="width:30%;" />
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PublicationDate)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublicationDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) <br />
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) <br />
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+</table>
