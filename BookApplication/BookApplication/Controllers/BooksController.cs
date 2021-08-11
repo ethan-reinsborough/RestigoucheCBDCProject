@@ -113,11 +113,25 @@ namespace BookApplication.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,PublicationDate")] Book book)
+        public ActionResult Edit([Bind(Include = "Id,Title,PublicationDate")] Book book, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(book).State = EntityState.Modified;
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    var bookCover = new File
+                    {
+                        FileName = System.IO.Path.GetFileName(upload.FileName),
+                        FileType = FileType.BookCover,
+                        ContentType = upload.ContentType
+                    };
+                    using (var reader = new System.IO.BinaryReader(upload.InputStream))
+                    {
+                        bookCover.Content = reader.ReadBytes(upload.ContentLength);
+                    }
+                    book.Files = new List<File> { bookCover };
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
