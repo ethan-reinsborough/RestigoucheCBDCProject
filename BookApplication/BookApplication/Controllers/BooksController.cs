@@ -48,7 +48,7 @@ namespace BookApplication.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             //Book book = db.Books.Find(id);
-            Book book = db.Books.Include(c => c.Files).SingleOrDefault(c => c.ID == id);
+            Book book = db.Books.Include(c => c.Cover).SingleOrDefault(c => c.ID == id);
             if (book == null)
             {
                 return HttpNotFound();
@@ -67,7 +67,7 @@ namespace BookApplication.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,PublicationDate")] Book book, HttpPostedFileBase upload)
+        public ActionResult Create([Bind(Include = "Id,Title,Author,PublicationDate")] Book book, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace BookApplication.Controllers
                     {
                         bookCover.Content = reader.ReadBytes(upload.ContentLength);
                     }
-                    book.Files = new List<File> { bookCover };
+                    book.Cover = new List<File> { bookCover };
                 }
                 db.Books.Add(book);
                 db.SaveChanges();
@@ -113,7 +113,7 @@ namespace BookApplication.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,PublicationDate")] Book book, HttpPostedFileBase upload)
+        public ActionResult Edit([Bind(Include = "Id,Title,Author,PublicationDate")] Book book, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
@@ -130,7 +130,7 @@ namespace BookApplication.Controllers
                     {
                         bookCover.Content = reader.ReadBytes(upload.ContentLength);
                     }
-                    book.Files = new List<File> { bookCover };
+                    book.Cover = new List<File> { bookCover };
                 }
                 db.SaveChanges();
                 return RedirectToAction("Index");

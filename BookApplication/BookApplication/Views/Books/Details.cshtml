@@ -11,22 +11,22 @@
     <h4>Book</h4>
     <hr />
     <dl class="dl-horizontal">
-        @if (Model.Files.Any(f => f.FileType == FileType.BookCover))
+        @if (Model.Cover.Any(f => f.FileType == FileType.BookCover))
         {
-            if (Model.Files.Any(f => f.Approved == false))
+            if (Model.Cover.Any(f => f.Approved == false))
             {
                 <dt>Book Cover</dt>
                 <dd>
                     <!--Add unapproved image here later-->
                     <img src="../../content/notapproved.png"
-                         alt="not approved" style="width:30%;" />
+                         alt="Image Not Approved" style="width:30%;" />
                 </dd>
             }
             else
             {
                 <dt>Book Cover</dt>
                 <dd>
-                    <img src="~/File?id=@Model.Files.Last(f => f.FileType == FileType.BookCover).FileID"
+                    <img src="~/File?id=@Model.Cover.Last(f => f.FileType == FileType.BookCover).FileID"
                          alt="book cover" style="width:30%;" />
                 </dd>
             }
@@ -38,6 +38,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Author)
         </dd>
 
         <dt>

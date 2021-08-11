@@ -17,11 +17,19 @@ namespace BookApplication.Models
         public string Title { get; set; }
 
         [Required]
+        [Display(Name = "Author")]
+        [StringLength(50, ErrorMessage = "Author must be at least 2 characters.", MinimumLength = 2)]
+        public string Author { get; set; }
+
+
+        [Required]
         [DataType(DataType.Date, ErrorMessage = "Invalid Publication Date")]
         [Display(Name = "Publication Date")]
         //Books may have a scheduled publication date, so future dates are allowed.
         public DateTime PublicationDate { get; set; }
 
-        public virtual ICollection<File> Files { get; set; }
+        [Required]
+        [DataType(DataType.Upload, ErrorMessage = "Cover is required.")]
+        public virtual ICollection<File> Cover { get; set; }
     }
 }

@@ -188,6 +188,10 @@
     <Compile Include="Migrations\202108111907109_updatedDataAnnotations.Designer.cs">
       <DependentUpon>202108111907109_updatedDataAnnotations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108111947564_addAuthor.cs" />
+    <Compile Include="Migrations\202108111947564_addAuthor.Designer.cs">
+      <DependentUpon>202108111947564_addAuthor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
@@ -286,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108111907109_updatedDataAnnotations.resx">
       <DependentUpon>202108111907109_updatedDataAnnotations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108111947564_addAuthor.resx">
+      <DependentUpon>202108111947564_addAuthor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
