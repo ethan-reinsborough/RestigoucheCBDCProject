@@ -191,7 +191,8 @@ namespace BookApplication.Controllers
         {
             //Simple logic which will either instantiate a cart entry for the book, or if it already exists,
             //it will increase the quantity by 1.
-            Cart checkItem = db.Carts.Where(c => c.bookID == book.ID).FirstOrDefault();
+            string checkUser = User.Identity.GetUserId();
+            Cart checkItem = db.Carts.Where(c => c.bookID == book.ID && c.userID == checkUser).FirstOrDefault();
             if (checkItem != null)
             {
                 db.Entry(checkItem).State = EntityState.Modified;
@@ -203,7 +204,7 @@ namespace BookApplication.Controllers
                 cart.bookTitle = book.Title;
                 cart.bookID = book.ID;
                 cart.quantity = 1;
-                cart.userID = User.Identity.GetUserId();
+                cart.userID = checkUser;
                 db.Carts.Add(cart);
             }
             db.SaveChanges();
