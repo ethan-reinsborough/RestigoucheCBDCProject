@@ -11,13 +11,14 @@
     <h4>Book</h4>
     <hr />
     <dl class="dl-horizontal">
+        <!-- Somewhat redundant since I am not using an actual error image but will leave it in 
+             case I decide to add one later on -->
         @if (Model.Cover.Any(f => f.FileType == FileType.BookCover))
         {
             if (Model.Cover.Any(f => f.Approved == false))
             {
                 <dt>Book Cover</dt>
                 <dd>
-                    <!--Add unapproved image here later-->
                     <img src="../../content/notapproved.png"
                          alt="Image Not Approved" style="width:30%;" />
                 </dd>

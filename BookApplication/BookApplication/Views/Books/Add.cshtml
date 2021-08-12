@@ -3,11 +3,6 @@
 @{
     ViewBag.Title = "Add to Cart";
 }
-<style>
-    .red {
-        color: red !important;
-    }
-</style>
 
 <h2>Add to Cart</h2>
 
@@ -17,7 +12,6 @@
     <div class="form-horizontal">
         <h4>Would you like to add this book to your cart?</h4>
         <div>
-            <h4>Book</h4>
             <hr />
             <dl class="dl-horizontal">
                 @Html.HiddenFor(model => model.Title)
@@ -27,7 +21,6 @@
                     <img src="~/File?id=@Model.Cover.Last(f => f.FileType == FileType.BookCover).FileID"
                          alt="book cover" style="width:30%;" />
                 </dd>
-
 
                 <dt>
                     @Html.DisplayNameFor(model => model.Title)

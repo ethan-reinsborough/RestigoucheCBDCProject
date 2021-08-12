@@ -59,8 +59,8 @@ namespace BookApplication.Controllers
             return View(book);
         }
 
-        [Authorize(Roles = RoleName.Admin)]
         // GET: Books/Create
+        [Authorize(Roles = RoleName.Admin)]       
         public ActionResult Create()
         {
             return View();
