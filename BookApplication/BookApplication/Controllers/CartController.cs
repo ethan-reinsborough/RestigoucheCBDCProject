@@ -14,7 +14,7 @@ namespace BookApplication.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Cart
+        // GET: Carts
         public ActionResult Index()
         {
             //Could filter directly from DB but this method returns the same result.
@@ -43,6 +43,32 @@ namespace BookApplication.Controllers
                 return HttpNotFound();
             }
             return View(book);
+        }
+
+        // GET: Carts/Delete
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Cart cart = db.Carts.Find(id);
+            if (cart == null)
+            {
+                return HttpNotFound();
+            }
+            return View(cart);
+        }
+
+        // POST: Carts/Delete
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int? id)
+        {
+            Cart cart = db.Carts.Find(id);
+            db.Carts.Remove(cart);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
     }
